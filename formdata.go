@@ -178,5 +178,5 @@ func (f *FormData) Data() io.Reader {
 
 // ContentType 获取 content-type
 func (f *FormData) ContentType() string {
-	return fmt.Sprintf("multipart/form-data; boundary=--%s", f.w.Boundary())
+	return f.w.FormDataContentType()
 }
