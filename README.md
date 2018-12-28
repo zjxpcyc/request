@@ -70,7 +70,7 @@ func (f *FormData) AddFile(key, fpath string, header ...textproto.MIMEHeader) er
 func (f *FormData) SetBoundary(b string) error
 
 // Boundary 返回 boundary
-// 注意, 这个仅仅是字符串的 boundary 前面的 - 需要自动
+// 注意, 这个仅仅是字符串的 boundary 前面的 - 需要自己手动组合
 func (f *FormData) Boundary() string
 
 // Close 最好在字段添加之后调用一次
