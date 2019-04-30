@@ -81,13 +81,12 @@ func getRemoteAddr(rawurl string, params url.Values) (string, error) {
 		return "", err
 	}
 
-	searchStr := params.Encode()
-	if u.RawQuery == "" {
-		u.RawQuery = searchStr
-	} else {
-		u.RawQuery += "&" + searchStr
+	query := u.Query()
+	for k := range params {
+		query[k] = params[k]
 	}
 
+	u.RawQuery = query.Encode()
 	return u.String(), nil
 }
 
